@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites errors="0"
+            failures="0"
+            tests="2">
+
+  <testsuite name="automationBasics"
+    errors="0" failures="0" hostname="" id="" package="automationBasics" skipped="0"
+    tests="2" time="0.8730" timestamp="">
+  
+    <testcase name="Testing the basics - loading page" classname="automationBasics" time="0.4850" assertions="6">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+    <testcase name="Testing Evens and Odds" classname="automationBasics" time="0.3880" assertions="4">
+
+    
+
+    
+
+    
+
+    
+    </testcase>
+  
+
+  
+
+  
+  </testsuite>
+</testsuites>
