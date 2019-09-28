@@ -15,14 +15,121 @@ module.exports = {
     },
     'Testing Evens and Odds': browser => {
         automationBasics
+        //TESTING ODD NUMBERS
             .setValue('@evenOddInput', '5')
             .click('@evenOddButton')
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: [5]")
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
             automationBasics.clearValue('@evenOddInput')
+        //TESTING EVEN NUMBERS
             .setValue('@evenOddInput', '6')
             .click('@evenOddButton')
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: [6]")
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: []")
+        //TESTING INVALID INPUTS
+            automationBasics.clearValue('@evenOddInput')
+            .setValue('@evenOddInput', 'oops')
+            .click('@evenOddButton')
+            automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
+            automationBasics.expect.element('@oddResults').text.to.equal("Odds: [null]")
+
+    },
+    'Testing Filter Objects': browser =>{
+        automationBasics
+        //TESTING INVALID INPUTS
+            .setValue('@objectFilterInput', filterObjectInputs.title)
+            .click('@objectFilterButton')
+            .getText('@objectFilterResults', result => {
+                browser.verify.ok('@objectFilterResults', result.value)
+                automationBasics.expect.element('@objectFilterResults').text.to.equal(result.value)
+            })
+            automationBasics.clearValue('@objectFilterInput')
+            .setValue('@objectFilterInput', filterObjectInputs.hairColor)
+            .getText('@objectFilterResults', result => {
+                browser.verify.ok('@objectFilterResults', result.hairColor)
+                automationBasics.expect.element('@objectFilterResults').text.to.equal(result.value)
+
+            })
+        //TESTING INVALID INPUTS
+            automationBasics.clearValue('@objectFilterInput')
+            .setValue('@objectFilterInput', filterObjectInputs.height)
+            .getText('@objectFilterResults', result => {
+                browser.verify.ok('@objectFilterResults', result.value)
+                automationBasics.expect.element('@objectFilterResults').text.to.equal(result.value)
+
+            })        
+    },
+    'Testing Filter String': browser => {
+        automationBasics
+        // TESTING VALID INPUTS
+            .setValue('@stringFilterInput', filterStringInputs.one)
+            .click('@stringFilterButton')
+            .getText('@stringFilterResults', result => {
+                browser.verify.ok('@stringFilterResults', result.value)
+                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.one)
+            })
+            automationBasics.clearValue('@stringFilterInput')
+            .setValue('@stringFilterInput', filterStringInputs.two)
+            .click('@stringFilterButton')
+            .getText('@stringFilterResults', result => {
+                browser.verify.ok('@stringFilterResults', result.value)
+                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.two)
+            })
+            automationBasics.clearValue('@stringFilterInput')
+            .setValue('@stringFilterInput', filterStringInputs.three)
+            .click('@stringFilterButton')
+            .getText('@stringFilterResults', result => {
+                browser.verify.ok('@stringFilterResults', result.value)
+                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.three)
+            })
+        //TESTING INVALID INPUTS
+             automationBasics.clearValue('@stringFilterInput')
+            .setValue('@stringFilterInput', filterStringInputs.four)
+            .click('@stringFilterButton')
+            .getText('@stringFilterResults', result => {
+                browser.verify.ok('@stringFilterResults', result.value)
+                automationBasics.expect.element('@stringFilterResults').text.to.not.equal(filterStringInputs.four)
+            })
+    },
+    'Testing Palindrome': browser => {
+        automationBasics
+        //testing input to get true
+            .setValue('@palindromeInput', palindromeInputs.pop)
+            .click('@palindromeButton')
+            .getText('@palindromeResults', result => {
+                browser.verify.ok('@palindromeResults', result.value)
+                automationBasics.expect.element('@palindromeResults').text.to.equal(result.value)
+            })
+            .setValue('@palindromeInput', palindromeInputs.twoNumber)
+            .click('@palindromeButton')
+            .getText('@palindromeResults', result => {
+                browser.verify.ok('@palindromeResults', result.value)
+                automationBasics.expect.element('@palindromeResults').text.to.equal(result.value)
+            })
+        //testing input to get false
+            .setValue('@palindromeInput', palindromeInputs.two)
+            .click('@palindromeButton')
+            .getText('@palindromeResults', result => {
+                browser.verify.ok('@palindromeResults', result.value)
+                automationBasics.expect.element('@palindromeResults').text.to.equal(result.value)
+            })
+    },
+    'Testing Sum': browser => {
+        automationBasics
+        //testing valid sum inputs
+            .setValue('@sumInput1', sumInputs.firstInputOne)
+            .setValue('@sumInput2', sumInputs.firstInputTwo)
+            .click('@sumButton')
+            .getText('@sumResults', result => {
+                browser.verify.ok('@sumResults', result.value)
+                automationBasics.expect.element('@sumResults').text.to.equal(result.value)
+            })
+            .setValue('@sumInput1', sumInputs.secondInputOne)
+            .setValue('@sumInput2', sumInputs.secondInputTwo)
+            .click('@sumButton')
+            .getText('@sumResults', result => {
+                browser.verify.ok('@sumResults', result.value)
+                automationBasics.expect.element('@sumResults').text.to.equal(result.value)
+            })
     }
 }
