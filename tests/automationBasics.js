@@ -15,28 +15,27 @@ module.exports = {
     },
     'Testing Evens and Odds': browser => {
         automationBasics
-        //TESTING ODD NUMBERS
+        //testing odd numbers
             .setValue('@evenOddInput', '5')
             .click('@evenOddButton')
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: [5]")
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
             automationBasics.clearValue('@evenOddInput')
-        //TESTING EVEN NUMBERS
+        //testing even numbers
             .setValue('@evenOddInput', '6')
             .click('@evenOddButton')
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: [6]")
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: []")
-        //TESTING INVALID INPUTS
+        //testing not numbers
             automationBasics.clearValue('@evenOddInput')
             .setValue('@evenOddInput', 'oops')
             .click('@evenOddButton')
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: [null]")
-
     },
     'Testing Filter Objects': browser =>{
         automationBasics
-        //TESTING INVALID INPUTS
+        //testing valid object inputs
             .setValue('@objectFilterInput', filterObjectInputs.title)
             .click('@objectFilterButton')
             .getText('@objectFilterResults', result => {
@@ -48,41 +47,39 @@ module.exports = {
             .getText('@objectFilterResults', result => {
                 browser.verify.ok('@objectFilterResults', result.hairColor)
                 automationBasics.expect.element('@objectFilterResults').text.to.equal(result.value)
-
             })
-        //TESTING INVALID INPUTS
+        //testing invalid object inputs
             automationBasics.clearValue('@objectFilterInput')
             .setValue('@objectFilterInput', filterObjectInputs.height)
             .getText('@objectFilterResults', result => {
                 browser.verify.ok('@objectFilterResults', result.value)
                 automationBasics.expect.element('@objectFilterResults').text.to.equal(result.value)
-
             })        
     },
     'Testing Filter String': browser => {
         automationBasics
-        // TESTING VALID INPUTS
+        //testing valid string inputs
             .setValue('@stringFilterInput', filterStringInputs.one)
             .click('@stringFilterButton')
             .getText('@stringFilterResults', result => {
                 browser.verify.ok('@stringFilterResults', result.value)
-                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.one)
+                automationBasics.expect.element('@stringFilterResults').text.to.contain(filterStringInputs.one)
             })
             automationBasics.clearValue('@stringFilterInput')
             .setValue('@stringFilterInput', filterStringInputs.two)
             .click('@stringFilterButton')
             .getText('@stringFilterResults', result => {
                 browser.verify.ok('@stringFilterResults', result.value)
-                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.two)
+                automationBasics.expect.element('@stringFilterResults').text.to.contain(filterStringInputs.two)
             })
             automationBasics.clearValue('@stringFilterInput')
             .setValue('@stringFilterInput', filterStringInputs.three)
             .click('@stringFilterButton')
             .getText('@stringFilterResults', result => {
                 browser.verify.ok('@stringFilterResults', result.value)
-                automationBasics.verify.containsText('@stringFilterResults', filterStringInputs.three)
+                automationBasics.expect.element('@stringFilterResults').text.to.contain(filterStringInputs.three)
             })
-        //TESTING INVALID INPUTS
+        //testing invalid input
              automationBasics.clearValue('@stringFilterInput')
             .setValue('@stringFilterInput', filterStringInputs.four)
             .click('@stringFilterButton')
