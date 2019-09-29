@@ -5,9 +5,9 @@
 
   <testsuite name="automationBasics"
     errors="0" failures="0" hostname="" id="" package="automationBasics" skipped="0"
-    tests="6" time="2.799" timestamp="">
+    tests="6" time="2.904" timestamp="">
   
-    <testcase name="Testing the basics - loading page" classname="automationBasics" time="0.4970" assertions="6">
+    <testcase name="Testing the basics - loading page" classname="automationBasics" time="0.5970" assertions="6">
 
     
 
@@ -22,7 +22,7 @@
     
     </testcase>
   
-    <testcase name="Testing Evens and Odds" classname="automationBasics" time="0.5270" assertions="6">
+    <testcase name="Testing Evens and Odds" classname="automationBasics" time="0.5520" assertions="6">
 
     
 
@@ -37,7 +37,7 @@
     
     </testcase>
   
-    <testcase name="Testing Filter Objects" classname="automationBasics" time="0.4240" assertions="6">
+    <testcase name="Testing Filter Objects" classname="automationBasics" time="0.4030" assertions="6">
 
     
 
@@ -52,7 +52,7 @@
     
     </testcase>
   
-    <testcase name="Testing Filter String" classname="automationBasics" time="0.6180" assertions="8">
+    <testcase name="Testing Filter String" classname="automationBasics" time="0.5970" assertions="8">
 
     
 
@@ -71,7 +71,7 @@
     
     </testcase>
   
-    <testcase name="Testing Palindrome" classname="automationBasics" time="0.3880" assertions="6">
+    <testcase name="Testing Palindrome" classname="automationBasics" time="0.3850" assertions="6">
 
     
 
@@ -86,7 +86,7 @@
     
     </testcase>
   
-    <testcase name="Testing Sum" classname="automationBasics" time="0.3450" assertions="4">
+    <testcase name="Testing Sum" classname="automationBasics" time="0.3700" assertions="4">
 
     
 

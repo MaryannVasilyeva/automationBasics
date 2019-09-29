@@ -7,28 +7,28 @@ module.exports = {
     'Testing the basics - loading page': browser => {
         automationBasics
             .waitForElementVisible('@landingPage')
-            automationBasics.expect.element('@evensAndOdds').text.to.equal("Evens and Odds")
-            automationBasics.expect.element('@filterObject').text.to.equal("Filter Object")
-            automationBasics.expect.element('@filterString').text.to.equal("Filter String")
-            automationBasics.expect.element('@palindrome').text.to.equal("Palindrome")
-            automationBasics.expect.element('@sum').text.to.equal("Sum")
+            automationBasics.expect.element('@evensAndOdds').text.to.equal(landingPage.evensOdds)
+            automationBasics.expect.element('@filterObject').text.to.equal(landingPage.filterObject)
+            automationBasics.expect.element('@filterString').text.to.equal(landingPage.filterString)
+            automationBasics.expect.element('@palindrome').text.to.equal(landingPage.palindrome)
+            automationBasics.expect.element('@sum').text.to.equal(landingPage.sum)
     },
     'Testing Evens and Odds': browser => {
         automationBasics
         //testing odd numbers
-            .setValue('@evenOddInput', '5')
+            .setValue('@evenOddInput', evenOddInputs.five)
             .click('@evenOddButton')
-            automationBasics.expect.element('@oddResults').text.to.equal("Odds: [5]")
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
+            automationBasics.expect.element('@oddResults').text.to.equal("Odds: [" + evenOddInputs.five + "]")
             automationBasics.clearValue('@evenOddInput')
         //testing even numbers
-            .setValue('@evenOddInput', '6')
+            .setValue('@evenOddInput', evenOddInputs.six)
             .click('@evenOddButton')
-            automationBasics.expect.element('@evenResults').text.to.equal("Evens: [6]")
+            automationBasics.expect.element('@evenResults').text.to.equal("Evens: [" + evenOddInputs.six + "]")
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: []")
         //testing not numbers
             automationBasics.clearValue('@evenOddInput')
-            .setValue('@evenOddInput', 'oops')
+            .setValue('@evenOddInput', evenOddInputs.oops)
             .click('@evenOddButton')
             automationBasics.expect.element('@evenResults').text.to.equal("Evens: []")
             automationBasics.expect.element('@oddResults').text.to.equal("Odds: [null]")

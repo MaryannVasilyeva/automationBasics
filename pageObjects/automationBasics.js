@@ -49,6 +49,18 @@ module.exports = {
         sumResults: '[name="sumResults"]',
     },
     //OBJECTS
+    var: landingPage = {
+        evensOdds: "Evens and Odds",
+        filterObject: "Filter Object",
+        filterString: "Filter String",
+        palindrome: "Palindrome",
+        sum: "Sum"
+    },
+    var: evenOddInputs = {
+        five: 5,
+        six: 6,
+        oops: "opps"
+    },
     var: filterObjectInputs = {
         title: 'title',
         hairColor: 'hairColor',
